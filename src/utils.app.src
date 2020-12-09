@@ -1,5 +1,5 @@
 {application, utils,
- [{description, "An OTP library"},
+ [{description, "Some usefull Erlang utils functions"},
   {vsn, "0.1.0"},
   {registered, []},
   {applications,

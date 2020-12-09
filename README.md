@@ -1,7 +1,7 @@
-utils
+Erlang utils
 =====
 
-An OTP library
+Some usefull Erlang utils functions
 
 Build
 -----
