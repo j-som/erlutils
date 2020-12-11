@@ -23,7 +23,7 @@
 
 %% 涉及到本地时间与UTC的，没有加UTC的都是本地时间
 -export([
-    now_as_seconds/0,
+    now_as_second/0,
     now_as_millisecond/0,
     now_as_microsecond/0,
     now/1,
@@ -47,8 +47,8 @@
 %%
 %% 返回当前时间戳（秒）
 %%
--spec now_as_seconds() -> seconds_from_1970().
-now_as_seconds() -> now(second).
+-spec now_as_second() -> seconds_from_1970().
+now_as_second() -> now(second).
 
 %%
 %% 返回当前时间戳（豪秒）
