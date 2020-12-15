@@ -8,7 +8,8 @@
 -module(urand).
 -export([
     list_rand/1,
-    rand_by_weight/2
+    rand_by_weight/2,
+    rand/2
 ]).
 
 %% 随机获取列表元素
@@ -35,3 +36,9 @@ rand_by_weight([H|T], Index, P) ->
         Weight ->
             rand_by_weight(T, Index, P-Weight)
     end.
+
+rand(N, N) -> N;
+rand(M, N) when M > N->
+    rand(N, M);
+rand(N, M) ->
+    rand:uniform(M - N) + N.
