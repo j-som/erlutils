@@ -14,7 +14,8 @@
 -export([
     append_if_not_exist/2,
     sorted_insert/3,
-    index_of/2
+    index_of/2,
+    replace_or_append/3
 ]).
 %%
 %% append_if_not_exist 在表头追加一个元素
@@ -54,3 +55,17 @@ index_of(I, List) ->
 index_of(I, [I|_], N) -> N;
 index_of(I, [_|T], N) -> index_of(I, T, N + 1);
 index_of(_, [], _) -> 0.
+
+%% 
+%% 用I替换掉列表中第一个F(H)返回true的元素，如果没有，则加在最末
+%%
+-spec replace_or_append(L :: [any()], fun((any()) -> boolean()), any()) -> [any()].
+replace_or_append([H|L], F, I) ->
+    case F(H) of 
+        true ->
+            [I|L];
+        false ->
+            [H|replace_or_append(L, F, I)]
+    end;
+replace_or_append([], _F, I) ->
+    [I].
